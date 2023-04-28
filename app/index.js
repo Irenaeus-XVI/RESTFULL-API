@@ -15,7 +15,7 @@ const path = require('path');
 
 //NOTE - Declare empty array that will save all of the object 
 let persons = [];
-
+  
 
 
 //NOTE - Listen to the port 
@@ -44,6 +44,8 @@ app.post('/persons', (req, res) => {
     persons.push(body);
     // console.log("persons:",...persons,"length",persons.length);
 
+    console.log("original:",persons);
+    console.log("distracted:",...persons);
     let person = [...persons]
     for (let i = 0; i < person.length; i++) {
         // console.log(`person ${i}:` ,person[i]);
@@ -66,10 +68,11 @@ app.get('/persons/:id', (req, res) => {
     console.log(id);
     id = parseInt(id);
     console.log("asd", req.params.id, "", id, typeof (req.params.id));
-    let personObject = persons.filter((e) => {
+    let personObject = persons.filter((e,index) => {
+        console.log(index);
         return e.id == id;
     });
     console.log(personObject);
-    personObject.length ?res.send(personObject) : res.send({ "Message": "Person not dound " });
+    personObject.length ?res.send(personObject) : res.send({ "Message": "Person not Found " });
   
 });

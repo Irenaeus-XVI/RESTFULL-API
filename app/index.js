@@ -27,7 +27,8 @@ app.listen(port, () => {
 //NOTE - Get All persons on the api
 
 app.get('/persons', (req, res) => {
-    res.json(persons);
+    
+    persons.length?res.json(persons):res.json("Message : No Persons Found ")
     // res.sendFile(path.join(__dirname, '/index.html'));
     //    res.write("hiiiiiii132iiiiiiiiii")
 

@@ -69,7 +69,7 @@ app.get('/persons/:id', (req, res) => {
 app.put('/persons/:id', (req, res) => {
     let id = parseInt(req.params.id);
     let index;
-    persons.filter((e, i) => {
+    persons.find((e, i) => {
         if (e.id == id) {
             index = i;
         }
@@ -82,4 +82,29 @@ app.put('/persons/:id', (req, res) => {
 
     persons[index] = updatedPerson;
     res.send(updatedPerson);
+});
+
+
+//NOTE - Delete (Delete Person Data )
+
+
+
+app.delete('/persons/:id', (req, res) => {
+    let id = parseInt(req.params.id);
+    let deletedIndex = persons.findIndex((e) => e.id == id);
+    if(deletedIndex>=0){
+        console.log(deletedIndex);
+
+        persons.splice(deletedIndex,1)
+        res.status(200).send(
+            "Message: person Deleted"
+        )
+    }
+    else{
+        res.status(404).send(
+            "Message: person Don't Found "
+        )
+    }
+    
+  
 });

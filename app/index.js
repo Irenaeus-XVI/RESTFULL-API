@@ -69,7 +69,7 @@ app.get('/persons/:id', (req, res) => {
 app.put('/persons/:id', (req, res) => {
     let id = parseInt(req.params.id);
     let index;
-     persons.filter((e, i) => {
+    persons.filter((e, i) => {
         if (e.id == id) {
             index = i;
         }

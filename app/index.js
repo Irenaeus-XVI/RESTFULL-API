@@ -15,47 +15,34 @@ const path = require('path');
 
 //NOTE - Declare empty array that will save all of the object 
 let persons = [];
-  
+
 
 
 //NOTE - Listen to the port 
 app.listen(port, () => {
-    console.log(`app is listining at http://localhost:${port}`);
+    console.log(`app is listening at http://localhost:${port}`);
 });
 
 
 //NOTE - Get All persons on the api
-
 app.get('/persons', (req, res) => {
-    
-    persons.length?res.json(persons):res.json("Message : No Persons Found ")
+    persons.length ? res.json(persons) : res.json("Message : No Persons Found ")
     // res.sendFile(path.join(__dirname, '/index.html'));
     //    res.write("hiiiiiii132iiiiiiiiii")
-
 });
 
 
 
-
+let id = 0;
 
 //NOTE - Create a new person
 app.post('/persons', (req, res) => {
-
     let body = req.body;
-    persons.push(body);
-    // console.log("persons:",...persons,"length",persons.length);
-
-    console.log("original:",persons);
-    console.log("distracted:",...persons);
-    let person = [...persons]
-    for (let i = 0; i < person.length; i++) {
-        // console.log(`person ${i}:` ,person[i]);
-        const { id, name, age, gender, email } = person[i];
-        console.log(id, name, age, gender, email);
-
-    }
-    res.send(req.body);
-
+    let person;
+    id++;
+    person = { id: id, ...body };
+    persons[id - 1] = person;
+    res.send(person);
 });
 
 
@@ -65,15 +52,34 @@ app.post('/persons', (req, res) => {
 
 //NOTE - Retrieve specific Person
 app.get('/persons/:id', (req, res) => {
-    let id = req.params.id.split(':').join("");
+    let id = req.params.id;
     console.log(id);
     id = parseInt(id);
     console.log("asd", req.params.id, "", id, typeof (req.params.id));
-    let personObject = persons.filter((e,index) => {
+    let personObject = persons.filter((e, index) => {
         console.log(index);
         return e.id == id;
     });
     console.log(personObject);
-    personObject.length ?res.send(personObject) : res.send({ "Message": "Person not Found " });
-  
+    personObject.length ? res.send(personObject) : res.send({ "Message": "Person not Found " });
+
+});
+
+//NOTE - PUT(Update Person Data )
+app.put('/persons/:id', (req, res) => {
+    let id = parseInt(req.params.id);
+    let index;
+     persons.filter((e, i) => {
+        if (e.id == id) {
+            index = i;
+        }
+    });
+
+    let updatedPerson = {
+        id, ...req.body
+    }
+
+
+    persons[index] = updatedPerson;
+    res.send(updatedPerson);
 });

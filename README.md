@@ -56,3 +56,26 @@ The following API endpoints are available:
 
 
 
+
+## For Testing(Recommended use Postman)
+
+
+   ### To retrieve a list of all persons:
+
+       http://localhost:8000/persons
+
+   ### To retrieve a single person by ID:
+
+       http://localhost:8000/persons/{id}
+
+   ### To update a person by ID:
+
+       http://localhost:8000/persons/{id}
+
+   ### To delete a person by ID:
+
+       http://localhost:8000/persons/{id}
+
+
+
+

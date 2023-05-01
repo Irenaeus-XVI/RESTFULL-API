@@ -41,8 +41,9 @@ app.post('/persons', (req, res) => {
     let person;
     id++;
     person = { id: id, ...body };
-    persons[id - 1] = person;
+    persons.push(person) ;
     res.send(person);
+    console.log(persons);
 });
 
 
@@ -105,6 +106,9 @@ app.delete('/persons/:id', (req, res) => {
             "Message: person Don't Found "
         )
     }
+
+    console.log(persons);
+    
     
   
 });

@@ -26,13 +26,7 @@ To run the application in a Docker container, follow these steps:
     **docker pull irenaeusxvi/restfull-api** 
 
 
-
-2. Build the Docker image:
-
-   **docker build . -t irenaeusxvi/restfull-api -f app/Dockerfile**
-
-
-3. Run the Docker container:
+2. Run the Docker container:
 
     **docker run -p 8000:8000 irenaeusxvi/restfull-api**
 
@@ -43,9 +37,7 @@ To run the application in a Docker container, follow these steps:
 
 
 
-4. Open a web browser and navigate to `http://localhost:8000/persons` to access the API.
-
-
+3. Open a web browser and navigate to `http://localhost:8000/persons` to access the API.
 
 
 
@@ -54,7 +46,7 @@ To run the application in a Docker container, follow these steps:
 
 
 
-5. For Stopping a container
+4. For Stopping a container
 
    **docker stop *{Container name in your  machine}**
 

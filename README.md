@@ -27,7 +27,6 @@ To run the application in a Docker container, follow these steps:
 
 
 
-
 2. Build the Docker image:
 
    **docker build . -t irenaeusxvi/restfull-api -f app/Dockerfile**
@@ -40,9 +39,24 @@ To run the application in a Docker container, follow these steps:
 
     **The `-p` option maps the host port `8000` to the container port `8000`.**
 
+    **This will start the API in a Docker container on `http://localhost:8000`.**
+
+
+
 4. Open a web browser and navigate to `http://localhost:8000/persons` to access the API.
 
+
+
+
+
    **You should see a message indicating that the API is running.**
+
+
+
+
+5. For Stopping a container
+
+   **docker stop irenaeusxvi/restfull-api**
 
 ## API Endpoints
 
@@ -77,5 +91,7 @@ The following API endpoints are available:
        http://localhost:8000/persons/{id}
 
 
+## Conclusion
 
+Dockerize a simple RESTful API for managing person objects using Node.js and Express.js is a straightforward process. By following the steps outlined in this README.md file, you should be able to Dockerize this API and run it in a Docker container on your local machine.
 

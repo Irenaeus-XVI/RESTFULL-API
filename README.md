@@ -56,7 +56,7 @@ To run the application in a Docker container, follow these steps:
 
 5. For Stopping a container
 
-   **docker stop *<Container name in your  machine>***
+   **docker stop **<Container name in your  machine>****
 
 ## API Endpoints
 

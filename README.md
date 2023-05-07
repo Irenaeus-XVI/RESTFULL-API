@@ -1,89 +1,55 @@
-# Dockerize a RESTful API for Managing Person Objects
+# FlickPicks
 
-This repository contains a RESTful API for managing person objects, built with Node.js and Express.js, and Dockerize for easy deployment and scalability.
+FlickPicks is an Android app that uses Retrofit, Glide, jBCrypt, and SQLite to fetch data from the Movie DB API and display trending movies and TV shows from the last week.
+
+## Installation
+
+To install FlickPicks, you can clone this repository and open the project in Android Studio. Then, you can build and run the app on an emulator or a physical Android device.
+
+## Usage
+
+When you open FlickPicks, you will be presented with a list of trending movies and TV shows from the last week, including its title, release date, rating, overview, and poster image.
+
+You can also search for movies and TV shows by typing in the search bar at the top of the screen. The app will display a list of results that match your search query, and you can click on a result to see more details about it.
+
+You can create your own user account.
+
+To use FlickPicks, you'll need to obtain an API key from The Movie Database. Once you have your API key, you can add it to the local.properties file in your project directory like so:
+
+    apiKey=YOUR_API_KEY_HERE
 
 
 
-## Prerequisites
-   Before you begin, make sure you have the following installed:
 
-* Docker: https://docs.docker.com/get-docker/
+## Development
+
+To develop FlickPicks further, you can add more features such as:
+
+- User authentication and registration using jBCrypt for password hashing
+- Saving user information and encrypted password  to a local SQLite database
+- Implementing NavBar to display more results from the Movie DB API
+- Adding a watchlist feature to keep track of movies and TV shows you want to watch
+
 
 ## Technologies Used
-
-The following technologies were used to build this project:
-
-- Node.js
-- Express.js
-- Docker
-
-## How to Run the Application in a Docker Container
-
-To run the application in a Docker container, follow these steps:
-
-1. pull the repository:
-
-    **docker pull irenaeusxvi/restfull-api** 
+- Retrofit: for making API calls to the Movie Database API
+- BCrypt: for securely hashing and storing user passwords
+- SQLite: for local data storage and retrieval
+- Glide: for loading and displaying images from the API
+- Android Studio: for development and testing
 
 
-2. Run the Docker container:
+Contributing
+------------
+Contributions to FlickPicks are welcome and encouraged! If you find a bug or have a feature request, please open an issue or submit a pull request. Before contributing.
 
-    **docker run -p 8000:8000 irenaeusxvi/restfull-api**
+## Credits
 
+- Ehab Tarek
+- Marwan Ayman
+- Ahmed Abd Elsalam 
+- Ahmed Khaled 
+- Youssef Barsom 
+ 
 
-    **The `-p` option maps the host port `8000` to the container port `8000`.**
-
-    **This will start the API in a Docker container on `http://localhost:8000`.**
-
-
-
-3. Open a web browser and navigate to `http://localhost:8000/persons` to access the API.
-
-
-
-   **You should see a message indicating that the API is running.**
-
-
-
-
-4. For Stopping a container
-
-   **docker stop *{Container name in your  machine}**
-
-## API Endpoints
-
-The following API endpoints are available:
-
-- `GET /api/persons` - get all persons
-- `GET /api/persons/{:id}` - get person by ID
-- `POST /api/persons` - create a new person
-- `PUT /api/persons/{:id}` - update person by ID
-- `DELETE /api/persons/{:id}` - delete person by ID
-
-
-
-
-## For Testing(Recommended use Postman)
-
-
-   ### To retrieve a list of all persons:
-
-       http://localhost:8000/persons
-
-   ### To retrieve a single person by ID:
-
-       http://localhost:8000/persons/{id}
-
-   ### To update a person by ID:
-
-       http://localhost:8000/persons/{id}
-
-   ### To delete a person by ID:
-
-       http://localhost:8000/persons/{id}
-
-
-## Conclusion
-
-Dockerize a simple RESTful API for managing person objects using Node.js and Express.js is a straightforward process. By following the steps outlined in this README.md file, you should be able to Dockerize this API and run it in a Docker container on your local machine.
 
